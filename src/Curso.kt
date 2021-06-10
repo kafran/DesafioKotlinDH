@@ -4,9 +4,21 @@ class Curso(
     val professorTitular: ProfessorTitular,
     val professorAdjunto: ProfessorAdjunto,
     val capacidadeMax: Int,
-    var alunosMatriculados: MutableList<Aluno> = mutableListOf()
+    private var alunosMatriculados: MutableList<Aluno> = mutableListOf()
 ) {
     override fun equals(other: Any?): Boolean {
         return (other is Curso) && this.codigo == other.codigo
+    }
+
+    fun addAluno(aluno: Aluno): Boolean {
+        if (alunosMatriculados.size < capacidadeMax) {
+            alunosMatriculados.add(aluno)
+            return true
+        }
+        return false
+    }
+
+    fun delAluno(aluno: Aluno) {
+        alunosMatriculados.remove(aluno)
     }
 }
