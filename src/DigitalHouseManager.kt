@@ -36,4 +36,13 @@ class DigitalHouseManager {
     fun excluirProfessor(codigo: Int) {
         professores.removeAll { prof -> prof.codigo == codigo }
     }
+
+    fun registrarAluno(
+        nome: String,
+        sobrenome: String,
+        codigo: Int
+    ) {
+        val aluno = Aluno(nome, sobrenome, codigo)
+        alunos.add(aluno)
+    }
 }
