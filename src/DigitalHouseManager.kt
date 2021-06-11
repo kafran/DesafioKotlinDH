@@ -3,4 +3,9 @@ class DigitalHouseManager {
     var professores: MutableList<Professor> = mutableListOf()
     var cursos: MutableList<Curso> = mutableListOf()
     var matriculas: MutableList<Matricula> = mutableListOf()
+
+    fun registrarCurso(nome: String, codigo: Int, capacidadeMax: Int) {
+        val curso = Curso(nome, codigo, capacidadeMax)
+        cursos.add(curso)
+    }
 }
