@@ -5,4 +5,8 @@ class Matricula(
     val curso: Curso
 ) {
     val dataDeMatricula: Date = Date()
+
+    override fun toString(): String {
+        return "Matricula($aluno, $curso)"
+    }
 }

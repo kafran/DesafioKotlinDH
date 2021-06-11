@@ -6,4 +6,8 @@ class Aluno(
     override fun equals(other: Any?): Boolean {
         return (other is Aluno) && this.codigo == other.codigo
     }
+
+    override fun toString(): String {
+        return "Aluno($nome, $sobrenome)"
+    }
 }
