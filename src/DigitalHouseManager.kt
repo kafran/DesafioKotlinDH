@@ -22,4 +22,14 @@ class DigitalHouseManager {
         val professor = ProfessorAdjunto(nome, sobrenome, codigo, horasMonitoria)
         professores.add(professor)
     }
+
+    fun registrarProfTitular(
+        nome: String,
+        sobrenome: String,
+        codigo: Int,
+        especialidade: String
+    ) {
+        val professor = ProfessorTitular(nome, sobrenome, codigo, especialidade)
+        professores.add(professor)
+    }
 }
