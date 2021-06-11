@@ -9,9 +9,17 @@ class DigitalHouseManager {
         cursos.add(curso)
     }
 
-    fun excluirCurso(codigo: Int){
-        cursos.removeAll {
-            curso -> curso.codigo == codigo
-        }
+    fun excluirCurso(codigo: Int) {
+        cursos.removeAll { curso -> curso.codigo == codigo }
+    }
+
+    fun registrarProfAdjunto(
+        nome: String,
+        sobrenome: String,
+        codigo: Int,
+        horasMonitoria: Int
+    ) {
+        val professor = ProfessorAdjunto(nome, sobrenome, codigo, horasMonitoria)
+        professores.add(professor)
     }
 }
