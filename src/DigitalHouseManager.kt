@@ -8,4 +8,10 @@ class DigitalHouseManager {
         val curso = Curso(nome, codigo, capacidadeMax)
         cursos.add(curso)
     }
+
+    fun excluirCurso(codigo: Int){
+        cursos.removeAll {
+            curso -> curso.codigo == codigo
+        }
+    }
 }
