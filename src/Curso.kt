@@ -1,11 +1,11 @@
 class Curso(
     val nome: String,
     val codigo: Int,
-    val capacidadeMax: Int,
-    private var alunosMatriculados: MutableList<Aluno> = mutableListOf()
+    val capacidadeMax: Int
 ) {
     var professorTitular: ProfessorTitular? = null
     var professorAdjunto: ProfessorAdjunto? = null
+    private var alunosMatriculados: MutableList<Aluno> = mutableListOf()
 
     override fun equals(other: Any?): Boolean {
         return (other is Curso) && this.codigo == other.codigo
