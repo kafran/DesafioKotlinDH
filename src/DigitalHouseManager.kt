@@ -4,6 +4,16 @@ class DigitalHouseManager {
     var cursos: MutableList<Curso> = mutableListOf()
     var matriculas: MutableList<Matricula> = mutableListOf()
 
+    override fun toString(): String {
+        val str = """
+            Alunos = $alunos
+            Professores = $professores
+            Cursos = $cursos
+            Matriculas = $matriculas
+            """
+        return str
+    }
+
     fun registrarCurso(nome: String, codigo: Int, capacidadeMax: Int) {
         val curso = Curso(nome, codigo, capacidadeMax)
         cursos.add(curso)
@@ -44,5 +54,24 @@ class DigitalHouseManager {
     ) {
         val aluno = Aluno(nome, sobrenome, codigo)
         alunos.add(aluno)
+    }
+
+    fun matricularAluno(
+        codigoAluno: Int,
+        codigoCurso: Int
+    ) {
+        val aluno = alunos.find { aluno -> aluno.codigo == codigoAluno }
+        val curso = cursos.find { curso -> curso.codigo == codigoCurso }
+
+        if (aluno == null || curso == null)
+            throw NullPointerException("Aluno ou Curso não encontrado.")
+
+        if (curso.addAluno(aluno)) {
+            val matricula = Matricula(aluno, curso)
+            matriculas.add(matricula)
+            println("Matrícula realizada.")
+        } else {
+            println("Não foi possível realizar a matrícular porque não há vagas.")
+        }
     }
 }
