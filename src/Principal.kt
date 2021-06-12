@@ -32,5 +32,7 @@ fun main() {
     manager.matricularAluno(3, 20002)
 
     println(manager)
-}
 
+    // Buscar curso por aluno
+    println(manager.procurarCursoPorAluno(1))
+}

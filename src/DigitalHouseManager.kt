@@ -96,4 +96,13 @@ class DigitalHouseManager {
         curso.addProfessor(profTitular)
         curso.addProfessor(profAdjunto)
     }
+
+    fun procurarCursoPorAluno(codigo: Int): List<Curso> {
+        val listaDeMatricula = matriculas.filter { matricula -> matricula.aluno.codigo == codigo }
+        var listaDeCursos = mutableListOf<Curso>()
+        listaDeMatricula.forEach {
+            listaDeCursos.add(it.curso)
+        }
+        return listaDeCursos
+    }
 }
