@@ -74,4 +74,26 @@ class DigitalHouseManager {
             println("Não foi possível realizar a matrícular porque não há vagas.")
         }
     }
+
+    fun alocarProfessor(
+        codigoCurso: Int,
+        codigoProfTitular: Int,
+        codigoProfAdjunto: Int
+    ) {
+        val curso = cursos.find { curso -> curso.codigo == codigoCurso }
+
+        if (curso == null)
+            //TODO
+            throw NullPointerException("Professor não encontrado.")
+
+        val profTitular = professores.find { prof -> prof.codigo == codigoProfTitular }
+        val profAdjunto = professores.find { prof -> prof.codigo == codigoProfAdjunto }
+
+        if (profTitular == null || profAdjunto == null)
+            //TODO
+            throw NullPointerException("Professor não encontrado.")
+
+        curso.addProfessor(profTitular)
+        curso.addProfessor(profAdjunto)
+    }
 }

@@ -22,4 +22,11 @@ class Curso(
     fun delAluno(aluno: Aluno) {
         alunosMatriculados.remove(aluno)
     }
+
+    fun addProfessor(professor: Professor) {
+        when (professor) {
+            is ProfessorTitular -> professorTitular = professor
+            is ProfessorAdjunto -> professorAdjunto = professor
+        }
+    }
 }
